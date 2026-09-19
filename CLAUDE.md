@@ -153,6 +153,7 @@ News notes:
 | Stages, routes, deadline maths | `src/lib/applications/model.ts` |
 | Seeded flashcards (must stay accurate; ids are permanent) | `src/content/decks/` |
 | Leitner scheduling | `src/lib/srs/leitner.ts` |
+| Career pathways content (review each cycle; bump LAST_REVIEWED) | `src/content/pathways.ts` |
 
 ## Phase status
 
@@ -164,7 +165,7 @@ News notes:
 | 3. Commercial awareness | Done |
 | 4. Application tracker | Done |
 | 5. Technical flashcards | Done |
-| 6. Pathways guide | Not started |
+| 6. Pathways guide | Done |
 | Home page | Not started |
 
 See `docs/PROGRESS.md` for dates and known issues.

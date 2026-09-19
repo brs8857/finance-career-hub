@@ -10,7 +10,7 @@ Checklist of build phases. Dates are when the phase was committed.
 | 3 | Commercial awareness | ✅ Done | 2026-09-19 |
 | 4 | Application tracker | ✅ Done | 2026-09-19 |
 | 5 | Technical flashcards | ✅ Done | 2026-09-19 |
-| 6 | Pathways guide | ⬜ Not started | |
+| 6 | Pathways guide | ✅ Done | 2026-09-19 |
 | - | Home page (today at a glance, weekly goals) | ⬜ Not started | |
 
 ## Phase 0 - Project setup, Git, docs
@@ -79,12 +79,26 @@ Checklist of build phases. Dates are when the phase was committed.
 - [x] Due / new / mastered counts per deck; daily review log (feeds streaks and weekly goals)
 - [x] 93 unit tests, including deck integrity (unique permanent ids)
 
+## Phase 6 - Pathways guide
+
+- [x] Nine routes: ACA, ACCA, CIMA, investment banking, sales & trading, asset management,
+      economic consulting, Government Economic Service, central banking
+- [x] For each: what the job involves, entry routes, qualifications, what to do at your stage
+- [x] At-a-glance comparison table and an ACA vs ACCA vs CIMA table
+- [x] "Details change" banner with last-reviewed date, change warnings for ACA and ACCA,
+      official source links (all checked to resolve on 2026-09-19)
+- [x] Specific figures (exam counts, experience requirements, GES entry criteria) verified
+      against ICAEW, ACCA, AICPA & CIMA and GOV.UK pages
+- [x] 95 unit tests
+
 ## Known issues
 
 - GitHub CLI (`gh`) is not installed on this machine, so the remote hasn't been created yet.
 - Twelve Data provider is written against its published docs but hasn't been run
   with a real key yet. Try it with `MARKET_DATA_PROVIDER=twelvedata` and report issues.
   Its free tier allows 8 requests/minute, so a cold load of the dashboard is slow.
+- Pathways content needs a yearly review (bump LAST_REVIEWED in src/content/pathways.ts).
+  CFA UK's IMC page couldn't be found, so the IMC is mentioned without a link.
 - Reuters no longer offers public RSS feeds, so it isn't included.
 - US macro cards need a free FRED key (README section 2); until then they show an
   "unavailable" state rather than numbers. The US yield curve works without it.
