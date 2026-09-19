@@ -1,0 +1,148 @@
+import type { Flashcard } from "./types";
+
+// Economics: elasticity, multipliers, monetary policy transmission.
+// Written to A-level / first-year standard with UK institutions.
+// IDs are permanent (progress is keyed on them) - add new cards with new ids.
+
+export const ECONOMICS: Flashcard[] = [
+  {
+    id: "eco-01",
+    deckId: "economics",
+    topic: "Elasticity",
+    front: "What is price elasticity of demand (PED)?",
+    back: "The responsiveness of quantity demanded to a change in price.\n\nPED = % change in quantity demanded ÷ % change in price.\n\nUsually negative; economists often quote the absolute value.",
+  },
+  {
+    id: "eco-02",
+    deckId: "economics",
+    topic: "Elasticity",
+    front: "What do elastic, inelastic and unit elastic demand mean?",
+    back: "|PED| > 1: elastic - quantity changes proportionally more than price.\n|PED| < 1: inelastic - quantity changes proportionally less.\n|PED| = 1: unit elastic.",
+  },
+  {
+    id: "eco-03",
+    deckId: "economics",
+    topic: "Elasticity",
+    front: "Demand is price inelastic. What happens to total revenue if price rises?",
+    back: "Revenue rises: the percentage fall in quantity is smaller than the percentage rise in price. (If demand were elastic, revenue would fall.)",
+  },
+  {
+    id: "eco-04",
+    deckId: "economics",
+    topic: "Elasticity",
+    front: "What determines price elasticity of demand?",
+    back: "- Availability of close substitutes\n- Share of income spent on the good\n- Necessity vs luxury\n- Time period (more elastic in the long run)\n- How broadly the market is defined (one brand vs all brands)\n- Habit or addiction",
+  },
+  {
+    id: "eco-05",
+    deckId: "economics",
+    topic: "Elasticity",
+    front: "What is income elasticity of demand (YED)?",
+    back: "YED = % change in quantity demanded ÷ % change in income.\n\nPositive: normal good (above 1: income elastic, often a luxury).\nNegative: inferior good.",
+  },
+  {
+    id: "eco-06",
+    deckId: "economics",
+    topic: "Elasticity",
+    front: "What is cross elasticity of demand (XED)?",
+    back: "XED = % change in quantity demanded of good A ÷ % change in the price of good B.\n\nPositive: substitutes. Negative: complements. Close to zero: unrelated.",
+  },
+  {
+    id: "eco-07",
+    deckId: "economics",
+    topic: "Elasticity",
+    front: "What is price elasticity of supply (PES), and what makes supply more elastic?",
+    back: "PES = % change in quantity supplied ÷ % change in price.\n\nMore elastic with spare capacity, stocks of finished goods, easily substituted factors of production, and over longer time periods.",
+  },
+  {
+    id: "eco-08",
+    deckId: "economics",
+    topic: "Elasticity",
+    front: "Why does PED matter to governments setting indirect taxes?",
+    back: "Taxes on goods with inelastic demand (e.g. fuel, tobacco) raise more revenue because quantity falls little, and more of the tax burden (incidence) falls on consumers rather than producers.",
+  },
+  {
+    id: "eco-09",
+    deckId: "economics",
+    topic: "Multiplier",
+    front: "What is the multiplier effect?",
+    back: "An initial injection of spending (government spending, investment or exports) raises national income by more than the injection, because one person's spending becomes another's income, part of which is spent again.",
+  },
+  {
+    id: "eco-10",
+    deckId: "economics",
+    topic: "Multiplier",
+    front: "What is the formula for the multiplier?",
+    back: "k = 1 ÷ (1 − MPC)\n\nIn an open economy with government: k = 1 ÷ MPW, where MPW (marginal propensity to withdraw) = MPS + MPT + MPM (save, pay tax, import).",
+  },
+  {
+    id: "eco-11",
+    deckId: "economics",
+    topic: "Multiplier",
+    front: "MPS = 0.1, MPT = 0.2, MPM = 0.2. The government spends an extra £10bn. What is the maximum rise in GDP?",
+    back: "MPW = 0.1 + 0.2 + 0.2 = 0.5\nk = 1 ÷ 0.5 = 2\nGDP rises by up to 2 × £10bn = £20bn (ceteris paribus).",
+  },
+  {
+    id: "eco-12",
+    deckId: "economics",
+    topic: "Multiplier",
+    front: "Why might the real-world multiplier be smaller than the formula suggests?",
+    back: "- Leakages into saving, tax and imports\n- Crowding out of private spending\n- Time lags\n- Little spare capacity, so extra demand raises prices rather than output\n- Confidence: people may save more if they expect higher future taxes",
+  },
+  {
+    id: "eco-13",
+    deckId: "economics",
+    topic: "Multiplier",
+    front: "What is the accelerator?",
+    back: "Investment depends on the rate of change of output, not its level. When growth speeds up, firms invest more; when growth slows - even if output is still rising - investment can fall.",
+  },
+  {
+    id: "eco-14",
+    deckId: "economics",
+    topic: "Monetary policy",
+    front: "Who sets UK monetary policy, and what is the target?",
+    back: "The Bank of England's nine-member Monetary Policy Committee (MPC). The government sets the target: 2% CPI inflation. The Bank has been operationally independent since 1997.",
+  },
+  {
+    id: "eco-15",
+    deckId: "economics",
+    topic: "Monetary policy",
+    front: "Name the main channels through which a change in Bank Rate affects inflation.",
+    back: "Bank Rate → market interest rates, asset prices, expectations/confidence and the exchange rate → domestic demand and net external demand → total demand → domestic inflationary pressure (plus import prices) → inflation.",
+  },
+  {
+    id: "eco-16",
+    deckId: "economics",
+    topic: "Monetary policy",
+    front: "How does a rise in Bank Rate reduce consumption?",
+    back: "- Borrowing (mortgages, loans, credit cards) becomes more expensive\n- Saving becomes more attractive\n- Households on variable or re-fixing mortgages have less disposable income\n- Asset prices (houses, shares) tend to fall, reducing wealth",
+  },
+  {
+    id: "eco-17",
+    deckId: "economics",
+    topic: "Monetary policy",
+    front: "How can higher UK interest rates affect sterling, and through it inflation?",
+    back: "Higher rates can attract capital inflows (hot money), raising demand for sterling so it appreciates. Imports get cheaper (lowering import prices and inflation) and exports less competitive (lowering net exports and aggregate demand).",
+  },
+  {
+    id: "eco-18",
+    deckId: "economics",
+    topic: "Monetary policy",
+    front: "Why do interest rate changes take time to affect inflation?",
+    back: "Time lags: many mortgages are on fixed rates, firms' investment plans take time to change, and prices and wages adjust slowly. The Bank of England estimates it can take up to about two years for the full effect on inflation.",
+  },
+  {
+    id: "eco-19",
+    deckId: "economics",
+    topic: "Monetary policy",
+    front: "What is quantitative easing (QE)?",
+    back: "The central bank creates reserves to buy assets - mainly government bonds - pushing down longer-term interest rates and supporting asset prices to boost demand, used when Bank Rate is near its lower bound. Selling or not replacing those bonds is quantitative tightening (QT).",
+  },
+  {
+    id: "eco-20",
+    deckId: "economics",
+    topic: "Monetary policy",
+    front: "What is the real interest rate, and why does it matter?",
+    back: "Real interest rate ≈ nominal interest rate − inflation.\n\nIt shows the true cost of borrowing and reward for saving. A 5% rate with 4% inflation is a real rate of only about 1%.",
+  },
+];

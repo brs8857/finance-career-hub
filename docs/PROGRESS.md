@@ -9,7 +9,7 @@ Checklist of build phases. Dates are when the phase was committed.
 | 2 | Macro panel | ✅ Done | 2026-09-19 |
 | 3 | Commercial awareness | ✅ Done | 2026-09-19 |
 | 4 | Application tracker | ✅ Done | 2026-09-19 |
-| 5 | Technical flashcards | ⬜ Not started | |
+| 5 | Technical flashcards | ✅ Done | 2026-09-19 |
 | 6 | Pathways guide | ⬜ Not started | |
 | - | Home page (today at a glance, weekly goals) | ⬜ Not started | |
 
@@ -67,6 +67,17 @@ Checklist of build phases. Dates are when the phase was committed.
 - [x] Nothing pre-filled - no real employers or deadlines
 - [x] Fixed: sr-only labels escaping horizontal scrollers caused page-wide sideways scroll
 - [x] 84 unit tests
+
+## Phase 5 - Technical flashcards
+
+- [x] Leitner spaced repetition: 5 boxes at 1 / 3 / 7 / 14 / 30 days; wrong answer -> box 1
+- [x] Seeded decks, 20 cards each: accounting (three statements, double entry, depreciation),
+      corporate finance (DCF, WACC, P/E, EV vs equity value), economics (elasticity,
+      multipliers, monetary policy transmission)
+- [x] Add / edit / delete your own cards, in any deck or "My cards"
+- [x] Keyboard study: Space to reveal, 1 = not yet, 2 = got it; missed cards practised once at the end
+- [x] Due / new / mastered counts per deck; daily review log (feeds streaks and weekly goals)
+- [x] 93 unit tests, including deck integrity (unique permanent ids)
 
 ## Known issues
 

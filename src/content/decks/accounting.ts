@@ -1,0 +1,148 @@
+import type { Flashcard } from "./types";
+
+// Accounting: three statements, double entry, depreciation.
+// UK/IFRS terminology, with US equivalents where interviewers use them.
+// IDs are permanent (progress is keyed on them) - add new cards with new ids.
+
+export const ACCOUNTING: Flashcard[] = [
+  {
+    id: "acc-01",
+    deckId: "accounting",
+    topic: "Three statements",
+    front: "What are the three primary financial statements?",
+    back: "1. Income statement (profit and loss account)\n2. Balance sheet (statement of financial position)\n3. Cash flow statement",
+  },
+  {
+    id: "acc-02",
+    deckId: "accounting",
+    topic: "Double entry",
+    front: "What is the accounting equation?",
+    back: "Assets = Liabilities + Equity.\n\nEvery transaction has two sides, so the equation always stays in balance.",
+  },
+  {
+    id: "acc-03",
+    deckId: "accounting",
+    topic: "Double entry",
+    front: "In double entry, what do debits and credits increase?",
+    back: "Debits increase assets and expenses (and drawings).\nCredits increase liabilities, equity (capital) and income.\n\nThe opposite entry decreases them. Mnemonic: DEAD CLIC - Debit: Expenses, Assets, Drawings; Credit: Liabilities, Income, Capital.",
+  },
+  {
+    id: "acc-04",
+    deckId: "accounting",
+    topic: "Double entry",
+    front: "A company buys £10,000 of inventory on credit. What is the double entry?",
+    back: "Dr Inventory £10,000\nCr Trade payables £10,000\n\nAn asset and a liability both rise; equity is unchanged.",
+  },
+  {
+    id: "acc-05",
+    deckId: "accounting",
+    topic: "Double entry",
+    front: "A company sells goods for £5,000 cash. They cost £3,000. What are the entries?",
+    back: "Dr Cash £5,000 / Cr Revenue £5,000\nDr Cost of sales £3,000 / Cr Inventory £3,000\n\nGross profit of £2,000 increases retained earnings (equity).",
+  },
+  {
+    id: "acc-06",
+    deckId: "accounting",
+    topic: "Double entry",
+    front: "What is a prepayment, and how is it recorded?",
+    back: "Paying now for an expense that belongs to a future period (e.g. a year's insurance paid upfront).\n\nWhen paid: Dr Prepayments (current asset) / Cr Cash.\nAs each period passes: Dr Expense / Cr Prepayments.",
+  },
+  {
+    id: "acc-07",
+    deckId: "accounting",
+    topic: "Three statements",
+    front: "How do the three financial statements link together?",
+    back: "- Net income from the income statement flows into retained earnings on the balance sheet.\n- Net income is also the starting point for operating cash flow (indirect method).\n- The net change in cash on the cash flow statement reconciles opening to closing cash on the balance sheet.",
+  },
+  {
+    id: "acc-08",
+    deckId: "accounting",
+    topic: "Three statements",
+    front: "Depreciation increases by £10 and the tax rate is 25%. Walk through the three statements.",
+    back: "Income statement: operating profit −£10, tax −£2.50, net income −£7.50.\nCash flow: net income −£7.50, add back depreciation +£10 → cash +£2.50 (from the lower tax bill).\nBalance sheet: cash +£2.50, PP&E −£10, so assets −£7.50; retained earnings −£7.50. It balances.",
+  },
+  {
+    id: "acc-09",
+    deckId: "accounting",
+    topic: "Three statements",
+    front: "What are the three sections of the cash flow statement?",
+    back: "1. Operating activities\n2. Investing activities (e.g. capital expenditure, buying businesses)\n3. Financing activities (e.g. borrowing, repaying debt, issuing shares, dividends)",
+  },
+  {
+    id: "acc-10",
+    deckId: "accounting",
+    topic: "Three statements",
+    front: "A company spends £100 on new machinery (capex). Where does it show up?",
+    back: "Cash flow statement: −£100 in investing activities.\nBalance sheet: cash −£100, PP&E +£100.\nIncome statement: nothing immediately - the cost reaches profit gradually through depreciation.",
+  },
+  {
+    id: "acc-11",
+    deckId: "accounting",
+    topic: "Three statements",
+    front: "What is working capital? How does a rise in trade receivables affect cash?",
+    back: "Working capital = current assets − current liabilities (operating view: inventory + trade receivables − trade payables).\n\nA rise in receivables means revenue has been booked but the cash hasn't arrived, so operating cash flow falls.",
+  },
+  {
+    id: "acc-12",
+    deckId: "accounting",
+    topic: "Principles",
+    front: "What is the accruals (matching) principle?",
+    back: "Income and expenses are recognised when they are earned or incurred, not when the cash is received or paid - so costs are matched to the revenue they help generate.",
+  },
+  {
+    id: "acc-13",
+    deckId: "accounting",
+    topic: "Principles",
+    front: "Why can a profitable company run out of cash?",
+    back: "Profit is accruals-based; cash isn't. Cash can be tied up in receivables and inventory, spent on capex, or used to repay debt. Growing too fast without the cash to fund working capital is called overtrading.",
+  },
+  {
+    id: "acc-14",
+    deckId: "accounting",
+    topic: "Three statements",
+    front: "Gross profit vs operating profit vs net profit?",
+    back: "Gross profit = revenue − cost of sales.\nOperating profit (EBIT) = gross profit − operating expenses (admin, distribution, depreciation & amortisation).\nNet profit = operating profit − net finance costs − tax.",
+  },
+  {
+    id: "acc-15",
+    deckId: "accounting",
+    topic: "Depreciation",
+    front: "What is depreciation?",
+    back: "The systematic allocation of a tangible non-current asset's cost (less its residual value) over its useful life. It matches the cost to the periods that benefit, and it is a non-cash expense.",
+  },
+  {
+    id: "acc-16",
+    deckId: "accounting",
+    topic: "Depreciation",
+    front: "Straight-line depreciation: formula and example?",
+    back: "(Cost − residual value) ÷ useful life.\n\nExample: machine costs £50,000, residual value £5,000, life 9 years → £5,000 a year.",
+  },
+  {
+    id: "acc-17",
+    deckId: "accounting",
+    topic: "Depreciation",
+    front: "How does reducing balance depreciation work?",
+    back: "A fixed percentage is applied to the carrying amount each year, so the charge is highest early on.\n\nExample at 20% on £10,000: year 1 £2,000 (carrying amount £8,000); year 2 £1,600 (£6,400).",
+  },
+  {
+    id: "acc-18",
+    deckId: "accounting",
+    topic: "Depreciation",
+    front: "What is the double entry for annual depreciation? What is carrying amount?",
+    back: "Dr Depreciation expense (income statement)\nCr Accumulated depreciation (reduces non-current assets)\n\nCarrying amount (net book value) = cost − accumulated depreciation (and any impairment).",
+  },
+  {
+    id: "acc-19",
+    deckId: "accounting",
+    topic: "Depreciation",
+    front: "Why is depreciation added back in the cash flow statement?",
+    back: "It reduced profit but no cash left the business in the period. The cash went out when the asset was bought, which is shown in investing activities.",
+  },
+  {
+    id: "acc-20",
+    deckId: "accounting",
+    topic: "Depreciation",
+    front: "What is the difference between depreciation and amortisation?",
+    back: "Same idea, different assets: depreciation spreads the cost of tangible assets (property, plant and equipment); amortisation spreads the cost of intangible assets with finite lives (e.g. software, licences, patents).",
+  },
+];

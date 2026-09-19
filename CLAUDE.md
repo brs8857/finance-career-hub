@@ -99,6 +99,8 @@ finance-career-hub/
 - A horizontal scroller (`overflow-x-auto`) must also be `relative`, or `sr-only`
   (absolutely positioned) children escape it and make the whole page scroll sideways.
 - Drag-and-drop is never the only way to do something: pair it with a keyboard/touch control.
+- Flashcard ids are permanent (saved progress is keyed on them). Fix a card's text in
+  place; never renumber. New seeded cards get new ids.
 
 ## Data sources
 
@@ -149,6 +151,8 @@ News notes:
 | News feeds list | `src/lib/news/feeds.ts` |
 | RSS parsing (headline + link + date ONLY) | `src/lib/news/rss.ts` |
 | Stages, routes, deadline maths | `src/lib/applications/model.ts` |
+| Seeded flashcards (must stay accurate; ids are permanent) | `src/content/decks/` |
+| Leitner scheduling | `src/lib/srs/leitner.ts` |
 
 ## Phase status
 
@@ -159,7 +163,7 @@ News notes:
 | 2. Macro panel | Done |
 | 3. Commercial awareness | Done |
 | 4. Application tracker | Done |
-| 5. Technical flashcards | Not started |
+| 5. Technical flashcards | Done |
 | 6. Pathways guide | Not started |
 | Home page | Not started |
 

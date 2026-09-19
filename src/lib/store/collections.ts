@@ -100,6 +100,34 @@ export const ApplicationSchema = z.object({
 });
 export type Application = z.infer<typeof ApplicationSchema>;
 
+// ---------- Flashcards ----------
+
+/** Leitner progress per card id (seeded or custom). */
+export const CardProgressSchema = z.object({
+  box: z.number().int().min(1).max(5),
+  due: isoDate,
+  lastReviewed: isoDate,
+  reviews: z.number().int().min(0),
+  lapses: z.number().int().min(0),
+});
+
+export const CustomCardSchema = z.object({
+  id: z.string().regex(/^my-[a-z0-9-]+$/),
+  deckId: z.enum(["accounting", "corporate-finance", "economics", "my-cards"]),
+  front: z.string().min(1).max(1000),
+  back: z.string().min(1).max(4000),
+  createdAt: z.string(),
+});
+export type CustomCard = z.infer<typeof CustomCardSchema>;
+
+/** One row per day studied - used for streaks and weekly goals. */
+export const ReviewDaySchema = z.object({
+  date: isoDate,
+  reviewed: z.number().int().min(0),
+  correct: z.number().int().min(0),
+});
+export type ReviewDay = z.infer<typeof ReviewDaySchema>;
+
 // ---------- Registry ----------
 
 export const collections = {
@@ -118,6 +146,18 @@ export const collections = {
   applications: {
     schema: z.array(ApplicationSchema).max(1000),
     initial: (): Application[] => [],
+  },
+  cardProgress: {
+    schema: z.record(z.string().max(64), CardProgressSchema),
+    initial: (): Record<string, z.infer<typeof CardProgressSchema>> => ({}),
+  },
+  customCards: {
+    schema: z.array(CustomCardSchema).max(2000),
+    initial: (): CustomCard[] => [],
+  },
+  reviewLog: {
+    schema: z.array(ReviewDaySchema).max(4000),
+    initial: (): ReviewDay[] => [],
   },
 } as const;
 
