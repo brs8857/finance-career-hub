@@ -103,9 +103,10 @@ finance-career-hub/
 |---|---|---|
 | Prices, indices, FX, commodities | Yahoo Finance chart endpoint (default) | No |
 | Prices (alternative) | Twelve Data free tier | `TWELVE_DATA_API_KEY` |
-| UK 10y gilt yield, Bank Rate | Bank of England IADB (CSV) | No |
+| UK gilt yields, Bank Rate, SONIA | Bank of England IADB (CSV) | No |
 | UK CPI, GDP, unemployment | ONS time-series API | No |
-| US macro, US yield curve | FRED | `FRED_API_KEY` |
+| US policy rate, CPI, GDP, unemployment | FRED | `FRED_API_KEY` |
+| US yield curve | US Treasury daily par yield CSV | No |
 | News headlines | Public RSS feeds (headline + link only) | No |
 
 Yahoo rate-limits bursts hard (tested: 11 rapid calls -> all 404). Always go through
@@ -118,6 +119,13 @@ Yahoo gotchas (verified against live data - see comments in `providers/yahoo.ts`
 - LSE shares are in pence (`GBp`). Index levels have no currency symbol.
 - A 404 with body "No data found" = unknown ticker; a bare 404/429 = rate limit.
 
+Macro notes:
+- Macro cards never show sample numbers. Missing key / failed source = an
+  "unavailable" card that says why and how to fix it.
+- ONS series can live in several datasets; GDP (IHYQ/IHYR) reads PN2 and QNA and
+  keeps the newer one. LFS unemployment is a rolling 3-month figure.
+- US GDP is annualised q/q; UK GDP is not. Say so wherever they sit side by side.
+
 ## Key files
 
 | Task | Where |
@@ -128,6 +136,8 @@ Yahoo gotchas (verified against live data - see comments in `providers/yahoo.ts`
 | Theme tokens | `src/app/globals.css` |
 | Sidebar links | `src/components/layout/nav.ts` |
 | Provenance badges ("SAMPLE DATA", "Last known") | `src/components/ui/DataStatus.tsx` |
+| Macro series definitions + fallbacks | `src/lib/macro/service.ts` |
+| Macro explainers (must stay accurate) | `src/lib/macro/explainers.ts` |
 
 ## Phase status
 
@@ -135,7 +145,7 @@ Yahoo gotchas (verified against live data - see comments in `providers/yahoo.ts`
 |---|---|
 | 0. Setup, Git, docs | Done |
 | 1. Foundation + Markets | Done |
-| 2. Macro panel | Not started |
+| 2. Macro panel | Done |
 | 3. Commercial awareness | Not started |
 | 4. Application tracker | Not started |
 | 5. Technical flashcards | Not started |

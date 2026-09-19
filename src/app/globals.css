@@ -26,6 +26,8 @@
   /* Chart series colour. Validated with the dataviz palette checker:
      light #1d5fbf on #ffffff, dark #5b95eb on #121820 - both pass. */
   --chart-line: #1d5fbf;
+  /* Second series (e.g. US vs UK). Pair validated for CVD separation. */
+  --chart-2: #c2410c;
   --chart-grid: #e6eaef;
   color-scheme: light;
 }
@@ -45,6 +47,7 @@
   --warn-fg: #fcd34d;
   --focus: #74a9ff;
   --chart-line: #5b95eb;
+  --chart-2: #d95926;
   --chart-grid: #1f2833;
   color-scheme: dark;
 }

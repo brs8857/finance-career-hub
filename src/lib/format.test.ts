@@ -55,3 +55,13 @@ describe("dates", () => {
     expect(todayIsoDate(new Date("2026-09-18T23:30:00Z"))).toBe("2026-09-19");
   });
 });
+
+describe("percentage points", async () => {
+  const { formatPp, formatPercent } = await import("./format");
+  it("formats pp changes and negative percentages with a proper minus", () => {
+    expect(formatPp(-0.25, 2)).toBe("−0.25pp");
+    expect(formatPp(0.2)).toBe("+0.2pp");
+    expect(formatPercent(-0.1)).toBe("−0.1%");
+    expect(formatPercent(3.75, 2)).toBe("3.75%");
+  });
+});

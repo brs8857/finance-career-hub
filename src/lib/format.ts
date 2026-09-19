@@ -130,3 +130,15 @@ export function todayIsoDate(now: Date = new Date()): string {
   // en-CA formats dates as YYYY-MM-DD.
   return new Intl.DateTimeFormat("en-CA", { timeZone: TIME_ZONE }).format(now);
 }
+
+/** Percentage-point change, e.g. "+0.2pp" / "−0.25pp". Used for rates and macro data. */
+export function formatPp(value: number | null | undefined, decimals = 1): string {
+  if (value == null || !Number.isFinite(value)) return "—";
+  return signed(`${fixed(Math.abs(value), decimals)}pp`, value);
+}
+
+/** "5.24%" */
+export function formatPercent(value: number | null | undefined, decimals = 1): string {
+  if (value == null || !Number.isFinite(value)) return "—";
+  return `${value < 0 ? MINUS : ""}${fixed(Math.abs(value), decimals)}%`;
+}

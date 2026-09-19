@@ -7,7 +7,7 @@ export type ChartRange = "1D" | "1W" | "1M" | "1Y";
 export const CHART_RANGES: ChartRange[] = ["1D", "1W", "1M", "1Y"];
 
 /** Where a number came from. Every payload the UI shows carries one of these. */
-export type DataSource = "yahoo" | "twelvedata" | "boe" | "ons" | "fred" | "sample";
+export type DataSource = "yahoo" | "twelvedata" | "boe" | "ons" | "fred" | "treasury" | "sample";
 
 export const SOURCE_LABELS: Record<DataSource, string> = {
   yahoo: "Yahoo Finance",
@@ -15,6 +15,7 @@ export const SOURCE_LABELS: Record<DataSource, string> = {
   boe: "Bank of England",
   ons: "ONS",
   fred: "FRED",
+  treasury: "US Treasury",
   sample: "Sample data",
 };
 

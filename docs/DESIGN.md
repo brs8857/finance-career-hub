@@ -103,6 +103,19 @@ Checked against live responses before relying on them:
 | Rates | UK 10-year gilt yield (Bank of England IADB, daily) |
 | Watchlist | User-editable; defaults are a handful of well-known FTSE/US names |
 
+## Macro sources (checked 2026-09-19)
+
+| Indicator | UK | US |
+|---|---|---|
+| Policy rate | BoE IUDBEDR (daily) | FRED DFEDTARL/DFEDTARU |
+| CPI | ONS D7G7 / MM23 | FRED CPIAUCSL, units=pc1 |
+| GDP | ONS IHYQ + IHYR, PN2 or QNA (newer wins) | FRED A191RL1Q225SBEA + A191RO1Q156NBEA |
+| Unemployment | ONS MGSX / LMS | FRED UNRATE |
+| Yield curve | BoE IUDSOIA, IUDSNPY, IUDMNPY, IUDLNPY | US Treasury daily par yield CSV |
+
+On 2026-09-19 QNA's latest GDP quarter was Q1 2026 while PN2 already had Q2 2026,
+which is why both are read.
+
 ## UI
 
 Calm "Bloomberg-lite": neutral slate surfaces, one accent colour, green/red only for
