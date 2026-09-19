@@ -126,6 +126,11 @@ Macro notes:
   keeps the newer one. LFS unemployment is a rolling 3-month figure.
 - US GDP is annualised q/q; UK GDP is not. Say so wherever they sit side by side.
 
+News notes:
+- Never read, store or display RSS descriptions/article text - headline, link,
+  source and date only. Links are restricted to http(s) and stripped of tracking params.
+- Reuters' public RSS is gone (checked 2026-09-19); don't re-add it.
+
 ## Key files
 
 | Task | Where |
@@ -138,6 +143,8 @@ Macro notes:
 | Provenance badges ("SAMPLE DATA", "Last known") | `src/components/ui/DataStatus.tsx` |
 | Macro series definitions + fallbacks | `src/lib/macro/service.ts` |
 | Macro explainers (must stay accurate) | `src/lib/macro/explainers.ts` |
+| News feeds list | `src/lib/news/feeds.ts` |
+| RSS parsing (headline + link + date ONLY) | `src/lib/news/rss.ts` |
 
 ## Phase status
 
@@ -146,7 +153,7 @@ Macro notes:
 | 0. Setup, Git, docs | Done |
 | 1. Foundation + Markets | Done |
 | 2. Macro panel | Done |
-| 3. Commercial awareness | Not started |
+| 3. Commercial awareness | Done |
 | 4. Application tracker | Not started |
 | 5. Technical flashcards | Not started |
 | 6. Pathways guide | Not started |

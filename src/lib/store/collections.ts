@@ -45,6 +45,24 @@ export const InstrumentNoteSchema = z.object({
 });
 export type InstrumentNote = z.infer<typeof InstrumentNoteSchema>;
 
+// ---------- Commercial awareness ----------
+
+/** A saved headline plus the user's three-part note. Headline + link only, never article text. */
+export const NewsNoteSchema = z.object({
+  id,
+  headline: z.string().min(1).max(400),
+  url: z.string().url().max(2000).refine((u) => /^https?:\/\//.test(u), "Must be an http(s) link"),
+  source: z.string().max(80),
+  publishedAt: z.string().nullable(),
+  savedAt: z.string(),
+  updatedAt: z.string(),
+  whatHappened: z.string().max(4000),
+  whyItMatters: z.string().max(4000),
+  whatNext: z.string().max(4000),
+  tags: z.array(z.string().min(1).max(40)).max(20),
+});
+export type NewsNote = z.infer<typeof NewsNoteSchema>;
+
 // ---------- Registry ----------
 
 export const collections = {
@@ -55,6 +73,10 @@ export const collections = {
   instrumentNotes: {
     schema: z.array(InstrumentNoteSchema).max(5000),
     initial: (): InstrumentNote[] => [],
+  },
+  newsNotes: {
+    schema: z.array(NewsNoteSchema).max(5000),
+    initial: (): NewsNote[] => [],
   },
 } as const;
 

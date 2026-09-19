@@ -142,3 +142,15 @@ export function formatPercent(value: number | null | undefined, decimals = 1): s
   if (value == null || !Number.isFinite(value)) return "—";
   return `${value < 0 ? MINUS : ""}${fixed(Math.abs(value), decimals)}%`;
 }
+
+/** "Today" / "Yesterday" / "Thu 17 Sep" for grouping a feed by UK calendar day. */
+export function dayGroupLabel(iso: string, now: Date = new Date()): string {
+  const day = todayIsoDate(new Date(iso));
+  const today = todayIsoDate(now);
+  const yesterday = todayIsoDate(new Date(now.getTime() - 24 * 3_600_000));
+  if (day === today) return "Today";
+  if (day === yesterday) return "Yesterday";
+  return new Intl.DateTimeFormat(LOCALE, { weekday: "short", day: "numeric", month: "short", timeZone: TIME_ZONE }).format(
+    new Date(iso),
+  );
+}

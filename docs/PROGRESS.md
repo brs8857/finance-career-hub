@@ -7,7 +7,7 @@ Checklist of build phases. Dates are when the phase was committed.
 | 0 | Project setup, Git, docs | ✅ Done | 2026-09-19 |
 | 1 | Foundation + Markets | ✅ Done | 2026-09-19 |
 | 2 | Macro panel | ✅ Done | 2026-09-19 |
-| 3 | Commercial awareness | ⬜ Not started | |
+| 3 | Commercial awareness | ✅ Done | 2026-09-19 |
 | 4 | Application tracker | ⬜ Not started | |
 | 5 | Technical flashcards | ⬜ Not started | |
 | 6 | Pathways guide | ⬜ Not started | |
@@ -46,12 +46,23 @@ Checklist of build phases. Dates are when the phase was committed.
 - [x] Explainers: what it is / why markets care / syllabus links, for every indicator
 - [x] 64 unit tests
 
+## Phase 3 - Commercial awareness
+
+- [x] Headline feed from 7 public RSS feeds: BBC Business, Guardian Business, Guardian
+      Economics, Sky News Business, City AM, Financial Times (headlines only), Bank of England
+- [x] Headlines + links only; descriptions never read or stored; http(s) links only
+- [x] Grouped by UK day, filter by source, per-feed status, 30-minute cache
+- [x] Save a story + three-part note (what happened / why it matters / what next) + tags
+- [x] Searchable archive (all words, all fields, accent-insensitive), tag filters, edit/delete
+- [x] 76 unit tests
+
 ## Known issues
 
 - GitHub CLI (`gh`) is not installed on this machine, so the remote hasn't been created yet.
 - Twelve Data provider is written against its published docs but hasn't been run
   with a real key yet. Try it with `MARKET_DATA_PROVIDER=twelvedata` and report issues.
   Its free tier allows 8 requests/minute, so a cold load of the dashboard is slow.
+- Reuters no longer offers public RSS feeds, so it isn't included.
 - US macro cards need a free FRED key (README section 2); until then they show an
   "unavailable" state rather than numbers. The US yield curve works without it.
 - FRED's keyless CSV download timed out from this machine, so only the keyed API is used.
