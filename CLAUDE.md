@@ -56,7 +56,8 @@ npm run dev          # http://localhost:3000
 npm run build        # production build (also type-checks)
 npm start            # serve the production build
 npm run lint         # ESLint
-npm test             # Vitest unit tests (from Phase 1)
+npm test             # Vitest unit tests
+npx next typegen     # regenerate route types if tsc can't find RouteContext/PageProps
 ```
 
 ## Folder structure
@@ -110,12 +111,30 @@ finance-career-hub/
 Yahoo rate-limits bursts hard (tested: 11 rapid calls -> all 404). Always go through
 the throttled fetcher + cache, never call it in a tight loop.
 
+Yahoo gotchas (verified against live data - see comments in `providers/yahoo.ts`):
+- Use the batched `/v8/finance/spark` endpoint for quotes (one call, many symbols).
+- Price = last regular-session close; change = price - `previousClose`. Never use
+  `fulldayPrice` (includes US extended hours) or the last two daily bars.
+- LSE shares are in pence (`GBp`). Index levels have no currency symbol.
+- A 404 with body "No data found" = unknown ticker; a bare 404/429 = rate limit.
+
+## Key files
+
+| Task | Where |
+|---|---|
+| Dashboard instruments (symbols only, never prices) | `src/lib/markets/instruments.ts` |
+| Fallback rules (cache -> live -> stale -> sample) | `src/lib/markets/service.ts` |
+| Saved data shapes (zod) | `src/lib/store/collections.ts` |
+| Theme tokens | `src/app/globals.css` |
+| Sidebar links | `src/components/layout/nav.ts` |
+| Provenance badges ("SAMPLE DATA", "Last known") | `src/components/ui/DataStatus.tsx` |
+
 ## Phase status
 
 | Phase | Status |
 |---|---|
 | 0. Setup, Git, docs | Done |
-| 1. Foundation + Markets | Not started |
+| 1. Foundation + Markets | Done |
 | 2. Macro panel | Not started |
 | 3. Commercial awareness | Not started |
 | 4. Application tracker | Not started |

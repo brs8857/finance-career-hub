@@ -1,26 +1,100 @@
 @import "tailwindcss";
 
+/* Dark mode is class-based: <html class="dark">. The inline script in
+   layout.tsx sets it before first paint from the saved preference or the OS. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ---------------------------------------------------------------
+   Theme tokens. Use these (bg-surface, text-muted, text-up...) in
+   components instead of raw colours, so both themes keep working.
+   Every text/background pair here meets WCAG AA (4.5:1).
+   --------------------------------------------------------------- */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #f5f6f8;
+  --surface: #ffffff;
+  --surface-2: #eef1f4;
+  --border: #dde2e8;
+  --fg: #111827;
+  --muted: #56606e;
+  --accent: #1d5fbf;
+  --accent-fg: #ffffff;
+  --up: #067647;
+  --down: #b42318;
+  --warn-bg: #fef3c7;
+  --warn-fg: #7c3a06;
+  --focus: #1d5fbf;
+  /* Chart series colour. Validated with the dataviz palette checker:
+     light #1d5fbf on #ffffff, dark #5b95eb on #121820 - both pass. */
+  --chart-line: #1d5fbf;
+  --chart-grid: #e6eaef;
+  color-scheme: light;
+}
+
+.dark {
+  --bg: #0b0f14;
+  --surface: #121820;
+  --surface-2: #1a222c;
+  --border: #283241;
+  --fg: #e6eaf0;
+  --muted: #9ba5b3;
+  --accent: #74a9ff;
+  --accent-fg: #0b0f14;
+  --up: #3fcf8e;
+  --down: #ff7a70;
+  --warn-bg: #3b2a08;
+  --warn-fg: #fcd34d;
+  --focus: #74a9ff;
+  --chart-line: #5b95eb;
+  --chart-grid: #1f2833;
+  color-scheme: dark;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-border: var(--border);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-fg: var(--accent-fg);
+  --color-up: var(--up);
+  --color-down: var(--down);
+  --color-warn-bg: var(--warn-bg);
+  --color-warn-fg: var(--warn-fg);
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  body {
+    background: var(--bg);
+    color: var(--fg);
+  }
+
+  /* One consistent, clearly visible keyboard focus ring everywhere. */
+  :focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Numbers line up in columns. */
+.num {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Native <dialog> backdrop. */
+dialog::backdrop {
+  background: rgb(0 0 0 / 0.55);
 }

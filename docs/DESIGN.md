@@ -52,7 +52,7 @@ Default TTLs: quotes 5 min, intraday history 5 min, daily history 1 hour,
 macro 12 hours, news 30 minutes.
 
 Upstream calls to Yahoo go through a single-lane throttle (one request at a time,
-≥ 400 ms apart) because bursts trigger blocking.
+≥ 500 ms apart) because bursts trigger blocking.
 
 ### Persistence
 
@@ -78,6 +78,20 @@ Client side a `useCollection()` hook talks to `/api/store/<collection>`.
 Live tests on 2026-09-19: Yahoo returned `^FTSE`, `^GSPC`, `GBPUSD=X` (HTTP 200) when
 spaced out, but 11 rapid requests all returned 404. BoE IADB and ONS returned data.
 Frankfurter returned GBP→USD 1.3344 for 2026-09-18.
+
+### Yahoo findings (2026-09-19)
+
+Checked against live responses before relying on them:
+
+- `/v8/finance/spark?symbols=A,B,C` returns every symbol in one request with
+  `previousClose`, so the dashboard needs one upstream call.
+- The last regular-session close matched `regularMarketPrice` for all 17 default
+  symbols. `fulldayPrice` did **not** for AAPL (334.80 vs 336.13 - extended hours),
+  so price and change are both derived from the series + `previousClose`.
+- Daily bars can disagree with `previousClose` (FTSE 100 bars implied 10,816.1;
+  Yahoo's published change used 10,688.5). Daily change never uses bars.
+- Unknown tickers: 404 **with** `chart.error.description` "No data found...".
+  Rate limiting: 404/429 **without** it. Treated differently.
 
 ## Instruments (Phase 1)
 

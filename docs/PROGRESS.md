@@ -5,7 +5,7 @@ Checklist of build phases. Dates are when the phase was committed.
 | # | Phase | Status | Completed |
 |---|---|---|---|
 | 0 | Project setup, Git, docs | ✅ Done | 2026-09-19 |
-| 1 | Foundation + Markets | ⬜ Not started | |
+| 1 | Foundation + Markets | ✅ Done | 2026-09-19 |
 | 2 | Macro panel | ⬜ Not started | |
 | 3 | Commercial awareness | ⬜ Not started | |
 | 4 | Application tracker | ⬜ Not started | |
@@ -22,8 +22,27 @@ Checklist of build phases. Dates are when the phase was committed.
 - [x] `git init` on `main`, first commit
 - [ ] Private GitHub repo `brs8857/finance-career-hub` created and pushed (needs GitHub CLI - see README)
 
+## Phase 1 - Foundation + Markets
+
+- [x] Layout: sidebar (desktop), slide-over menu (mobile), skip link, footer disclaimer
+- [x] Light / dark / system theme, no flash on load, AA contrast checked for every text pair
+- [x] Provider adapters: Yahoo (default), Twelve Data (optional), labelled sample mode
+- [x] Server cache (memory + `.cache/`), throttled upstream calls, stale-copy fallback
+- [x] Indices: FTSE 100, FTSE 250, S&P 500, Nasdaq, DAX, Nikkei 225
+- [x] FX (GBP/USD, GBP/EUR, USD/JPY), Brent, gold, UK 10y gilt (Bank of England)
+- [x] Sparklines + 1D / 1W / 1M / 1Y charts with hover tooltip and data-table view
+- [x] Editable watchlist (ticker verified before adding), saved to `data/watchlist.json`
+- [x] Top movers for the watchlist (sample data never counted)
+- [x] "My take" notes per instrument, dated, with the real move captured alongside
+- [x] 49 unit tests (parsers, cache, fallbacks, formatting, ranking)
+
 ## Known issues
 
 - GitHub CLI (`gh`) is not installed on this machine, so the remote hasn't been created yet.
+- Twelve Data provider is written against its published docs but hasn't been run
+  with a real key yet. Try it with `MARKET_DATA_PROVIDER=twelvedata` and report issues.
+  Its free tier allows 8 requests/minute, so a cold load of the dashboard is slow.
+- The Bank of England publishes gilt yields with a lag of a few working days; the
+  tile shows the observation date.
 - Yahoo Finance's chart endpoint is unofficial and rate-limits bursts. Mitigated by
   throttling + caching; fallback is sample-data mode or Twelve Data.
