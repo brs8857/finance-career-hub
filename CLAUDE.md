@@ -170,7 +170,7 @@ News notes:
 | 6. Pathways guide | Done |
 | Home page | Done |
 
-All phases complete as of 2026-09-19. Next: push to the private GitHub repo (needs `gh`
-or a manually created repo - see README section 6).
+All phases complete as of 2026-09-19. Pushed to the private repo
+https://github.com/brs8857/finance-career-hub (branch `main`).
 
 See `docs/PROGRESS.md` for dates and known issues.

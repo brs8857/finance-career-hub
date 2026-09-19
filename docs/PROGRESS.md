@@ -20,7 +20,7 @@ Checklist of build phases. Dates are when the phase was committed.
 - [x] `.env.example` with placeholder values only
 - [x] `CLAUDE.md`, `README.md`, `docs/PROGRESS.md`, `docs/LEARNING-LOG.md`, `docs/DESIGN.md`
 - [x] `git init` on `main`, first commit
-- [ ] Private GitHub repo `brs8857/finance-career-hub` created and pushed (needs GitHub CLI - see README)
+- [x] Private GitHub repo `brs8857/finance-career-hub` created and pushed (2026-09-19)
 
 ## Phase 1 - Foundation + Markets
 
@@ -103,7 +103,6 @@ Checklist of build phases. Dates are when the phase was committed.
 
 ## Known issues
 
-- GitHub CLI (`gh`) is not installed on this machine, so the remote hasn't been created yet.
 - Twelve Data provider is written against its published docs but hasn't been run
   with a real key yet. Try it with `MARKET_DATA_PROVIDER=twelvedata` and report issues.
   Its free tier allows 8 requests/minute, so a cold load of the dashboard is slow.
