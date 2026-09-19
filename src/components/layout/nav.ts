@@ -1,4 +1,4 @@
-import { Home, Landmark, LineChart, Newspaper, type LucideIcon } from "lucide-react";
+import { Home, KanbanSquare, Landmark, LineChart, Newspaper, type LucideIcon } from "lucide-react";
 
 // Sidebar navigation. Add a line here when you add a new page.
 
@@ -13,6 +13,7 @@ export const NAV_ITEMS: NavItem[] = [
   { href: "/markets", label: "Markets", icon: LineChart },
   { href: "/macro", label: "Macro", icon: Landmark },
   { href: "/news", label: "News & notes", icon: Newspaper },
+  { href: "/applications", label: "Applications", icon: KanbanSquare },
 ];
 
 export function isActive(pathname: string, href: string): boolean {

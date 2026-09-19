@@ -8,7 +8,7 @@ Checklist of build phases. Dates are when the phase was committed.
 | 1 | Foundation + Markets | ✅ Done | 2026-09-19 |
 | 2 | Macro panel | ✅ Done | 2026-09-19 |
 | 3 | Commercial awareness | ✅ Done | 2026-09-19 |
-| 4 | Application tracker | ⬜ Not started | |
+| 4 | Application tracker | ✅ Done | 2026-09-19 |
 | 5 | Technical flashcards | ⬜ Not started | |
 | 6 | Pathways guide | ⬜ Not started | |
 | - | Home page (today at a glance, weekly goals) | ⬜ Not started | |
@@ -55,6 +55,18 @@ Checklist of build phases. Dates are when the phase was committed.
 - [x] Save a story + three-part note (what happened / why it matters / what next) + tags
 - [x] Searchable archive (all words, all fields, accent-insensitive), tag filters, edit/delete
 - [x] 76 unit tests
+
+## Phase 4 - Application tracker
+
+- [x] Kanban: Researching, Applying, Applied, Online tests, Interview, Offer, Rejected
+- [x] Fields: employer, role, route (spring week / internship / grad scheme / apprenticeship /
+      degree apprenticeship), deadline, rolling flag, link, notes, contacts
+- [x] Move cards by drag-and-drop OR a per-card "Move to" menu (keyboard + touch)
+- [x] Stage history recorded (feeds the weekly "applications progressed" goal)
+- [x] Deadline view: overdue / next 7 days / next 30 days / later, with countdowns in UK dates
+- [x] Nothing pre-filled - no real employers or deadlines
+- [x] Fixed: sr-only labels escaping horizontal scrollers caused page-wide sideways scroll
+- [x] 84 unit tests
 
 ## Known issues
 

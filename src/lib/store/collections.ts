@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { ROUTE_IDS, STAGE_IDS } from "@/lib/applications/model";
 import { DEFAULT_WATCHLIST, SYMBOL_PATTERN } from "@/lib/markets/instruments";
 
 // Every piece of personal data the app saves is a "collection": one JSON file
@@ -63,6 +64,42 @@ export const NewsNoteSchema = z.object({
 });
 export type NewsNote = z.infer<typeof NewsNoteSchema>;
 
+// ---------- Applications ----------
+
+const httpUrl = z
+  .string()
+  .max(2000)
+  .refine((u) => u === "" || /^https?:\/\//.test(u), "Must start with http:// or https://");
+
+export const ContactSchema = z.object({
+  id,
+  name: z.string().min(1).max(120),
+  role: z.string().max(120),
+  email: z.string().max(200),
+  notes: z.string().max(2000),
+});
+export type Contact = z.infer<typeof ContactSchema>;
+
+/** One application. Entered by the user - the app never pre-fills employers or deadlines. */
+export const ApplicationSchema = z.object({
+  id,
+  employer: z.string().min(1).max(120),
+  role: z.string().max(160),
+  route: z.enum(ROUTE_IDS),
+  stage: z.enum(STAGE_IDS),
+  /** YYYY-MM-DD, or null if none / not known yet. */
+  deadline: isoDate.nullable(),
+  /** Recruits on a rolling basis: may close before the deadline. */
+  rolling: z.boolean(),
+  link: httpUrl,
+  notes: z.string().max(8000),
+  contacts: z.array(ContactSchema).max(50),
+  history: z.array(z.object({ stage: z.enum(STAGE_IDS), at: z.string() })).max(200),
+  createdAt: z.string(),
+  updatedAt: z.string(),
+});
+export type Application = z.infer<typeof ApplicationSchema>;
+
 // ---------- Registry ----------
 
 export const collections = {
@@ -77,6 +114,10 @@ export const collections = {
   newsNotes: {
     schema: z.array(NewsNoteSchema).max(5000),
     initial: (): NewsNote[] => [],
+  },
+  applications: {
+    schema: z.array(ApplicationSchema).max(1000),
+    initial: (): Application[] => [],
   },
 } as const;
 

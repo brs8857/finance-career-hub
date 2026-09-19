@@ -123,7 +123,7 @@ export function WatchlistPanel({
       ) : items.length === 0 ? (
         <p className="text-sm text-muted">Your watchlist is empty. Add a ticker above.</p>
       ) : (
-        <div className="-mx-4 overflow-x-auto">
+        <div className="relative -mx-4 overflow-x-auto">
           <table className="w-full min-w-[22rem] text-sm">
             <caption className="sr-only">Watchlist prices</caption>
             <thead>

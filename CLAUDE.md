@@ -96,6 +96,9 @@ finance-career-hub/
   from `globals.css`, not raw hex colours, so dark mode keeps working.
 - **Money/number formatting:** use helpers in `src/lib/format.ts` (en-GB locale).
 - Keep files focused; if a file passes ~250 lines, split it.
+- A horizontal scroller (`overflow-x-auto`) must also be `relative`, or `sr-only`
+  (absolutely positioned) children escape it and make the whole page scroll sideways.
+- Drag-and-drop is never the only way to do something: pair it with a keyboard/touch control.
 
 ## Data sources
 
@@ -145,6 +148,7 @@ News notes:
 | Macro explainers (must stay accurate) | `src/lib/macro/explainers.ts` |
 | News feeds list | `src/lib/news/feeds.ts` |
 | RSS parsing (headline + link + date ONLY) | `src/lib/news/rss.ts` |
+| Stages, routes, deadline maths | `src/lib/applications/model.ts` |
 
 ## Phase status
 
@@ -154,7 +158,7 @@ News notes:
 | 1. Foundation + Markets | Done |
 | 2. Macro panel | Done |
 | 3. Commercial awareness | Done |
-| 4. Application tracker | Not started |
+| 4. Application tracker | Done |
 | 5. Technical flashcards | Not started |
 | 6. Pathways guide | Not started |
 | Home page | Not started |
