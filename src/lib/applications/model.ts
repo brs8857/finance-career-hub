@@ -93,23 +93,3 @@ export function moveToStage<T extends HasHistory>(app: T, stage: StageId, now: D
   if (app.stage === stage) return app;
   return { ...app, stage, history: [...app.history, { stage, at: now.toISOString() }] };
 }
-
-/**
- * How many applications moved forward since `sinceIso` (for the weekly goal).
- * Counts each application once; moves to "rejected" or backwards don't count.
- */
-export function progressedSince(apps: HasHistory[], sinceIso: string): number {
-  const order = new Map(STAGE_IDS.map((id, i) => [id, i]));
-  let count = 0;
-  for (const app of apps) {
-    let prevIndex = 0;
-    let progressed = false;
-    for (const step of app.history) {
-      const idx = order.get(step.stage) ?? 0;
-      if (step.at >= sinceIso && step.stage !== "rejected" && idx > prevIndex) progressed = true;
-      prevIndex = idx;
-    }
-    if (progressed) count++;
-  }
-  return count;
-}

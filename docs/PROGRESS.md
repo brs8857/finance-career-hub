@@ -11,7 +11,7 @@ Checklist of build phases. Dates are when the phase was committed.
 | 4 | Application tracker | ✅ Done | 2026-09-19 |
 | 5 | Technical flashcards | ✅ Done | 2026-09-19 |
 | 6 | Pathways guide | ✅ Done | 2026-09-19 |
-| - | Home page (today at a glance, weekly goals) | ⬜ Not started | |
+| - | Home page (today at a glance, weekly goals) | ✅ Done | 2026-09-19 |
 
 ## Phase 0 - Project setup, Git, docs
 
@@ -90,6 +90,16 @@ Checklist of build phases. Dates are when the phase was committed.
 - [x] Specific figures (exam counts, experience requirements, GES entry criteria) verified
       against ICAEW, ACCA, AICPA & CIMA and GOV.UK pages
 - [x] 95 unit tests
+
+## Home page
+
+- [x] Today at a glance: market snapshot, cards due, next deadline, "commercial awareness done today?" tick
+- [x] Weekly goals (notes, cards, applications progressed), editable, Monday-Sunday UK weeks
+- [x] Daily activity streak + consecutive weeks with every goal met
+- [x] Date-dependent parts render in the browser only (the page is prerendered at build time)
+- [x] Fixed: watchlist table forced sideways scrolling on 375px phones (grid item needed min-w-0)
+- [x] Final check: all 10 pages at 375px - no horizontal scroll, disclaimer footer present
+- [x] 101 unit tests; lint and production build clean
 
 ## Known issues
 

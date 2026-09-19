@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { ROUTE_IDS, STAGE_IDS } from "@/lib/applications/model";
+import { DEFAULT_GOALS } from "@/lib/goals";
 import { DEFAULT_WATCHLIST, SYMBOL_PATTERN } from "@/lib/markets/instruments";
 
 // Every piece of personal data the app saves is a "collection": one JSON file
@@ -128,6 +129,20 @@ export const ReviewDaySchema = z.object({
 });
 export type ReviewDay = z.infer<typeof ReviewDaySchema>;
 
+// ---------- Home: goals and daily checks ----------
+
+export const GoalsSchema = z.object({
+  notesPerWeek: z.number().int().min(0).max(100),
+  cardsPerWeek: z.number().int().min(0).max(2000),
+  applicationsPerWeek: z.number().int().min(0).max(100),
+});
+
+export const DailyCheckSchema = z.object({
+  date: isoDate,
+  commercialAwareness: z.boolean(),
+});
+export type DailyCheck = z.infer<typeof DailyCheckSchema>;
+
 // ---------- Registry ----------
 
 export const collections = {
@@ -158,6 +173,14 @@ export const collections = {
   reviewLog: {
     schema: z.array(ReviewDaySchema).max(4000),
     initial: (): ReviewDay[] => [],
+  },
+  goals: {
+    schema: GoalsSchema,
+    initial: () => ({ ...DEFAULT_GOALS }),
+  },
+  dailyChecks: {
+    schema: z.array(DailyCheckSchema).max(4000),
+    initial: (): DailyCheck[] => [],
   },
 } as const;
 

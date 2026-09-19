@@ -56,8 +56,8 @@ Upstream calls to Yahoo go through a single-lane throttle (one request at a time
 
 ### Persistence
 
-`src/lib/store` exposes typed collections (watchlist, instrument notes, news notes,
-applications, flashcard progress, goals). Server side it reads/writes
+`src/lib/store` exposes typed collections: watchlist, instrumentNotes, newsNotes,
+applications, cardProgress, customCards, reviewLog, goals, dailyChecks. Server side it reads/writes
 `data/<collection>.json` with atomic writes (write temp file, then rename).
 Client side a `useCollection()` hook talks to `/api/store/<collection>`.
 

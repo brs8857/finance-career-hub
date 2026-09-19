@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { countdownLabel, daysUntil, moveToStage, nextDeadline, openDeadlines, progressedSince, urgencyOf } from "./model";
+import { countdownLabel, daysUntil, moveToStage, nextDeadline, openDeadlines, urgencyOf } from "./model";
 import type { StageId } from "./model";
 
 describe("daysUntil / countdownLabel", () => {
@@ -61,13 +61,5 @@ describe("stage history", () => {
     expect(moved.stage).toBe("applied");
     expect(moved.history.at(-1)).toEqual({ stage: "applied", at: "2026-09-18T10:00:00.000Z" });
     expect(moveToStage(moved, "applied")).toBe(moved);
-  });
-
-  it("counts applications that moved forward this week, once each", () => {
-    const a = moveToStage(moveToStage(base, "applying", new Date("2026-09-15T09:00:00Z")), "applied", new Date("2026-09-16T09:00:00Z"));
-    const rejected = moveToStage(base, "rejected", new Date("2026-09-16T09:00:00Z"));
-    const old = moveToStage(base, "applied", new Date("2026-09-01T09:00:00Z"));
-    const backwards = moveToStage(moveToStage(base, "interview", new Date("2026-09-01T09:00:00Z")), "applied", new Date("2026-09-16T09:00:00Z"));
-    expect(progressedSince([a, rejected, old, backwards], "2026-09-14T00:00:00Z")).toBe(1);
   });
 });

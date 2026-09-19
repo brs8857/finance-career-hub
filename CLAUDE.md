@@ -98,6 +98,7 @@ finance-career-hub/
 - Keep files focused; if a file passes ~250 lines, split it.
 - A horizontal scroller (`overflow-x-auto`) must also be `relative`, or `sr-only`
   (absolutely positioned) children escape it and make the whole page scroll sideways.
+- Grid/flex items that contain a scroller need `min-w-0`, or the scroller can't shrink on phones.
 - Drag-and-drop is never the only way to do something: pair it with a keyboard/touch control.
 - Flashcard ids are permanent (saved progress is keyed on them). Fix a card's text in
   place; never renumber. New seeded cards get new ids.
@@ -154,6 +155,7 @@ News notes:
 | Seeded flashcards (must stay accurate; ids are permanent) | `src/content/decks/` |
 | Leitner scheduling | `src/lib/srs/leitner.ts` |
 | Career pathways content (review each cycle; bump LAST_REVIEWED) | `src/content/pathways.ts` |
+| Weekly goals + streak rules | `src/lib/goals.ts` |
 
 ## Phase status
 
@@ -166,6 +168,9 @@ News notes:
 | 4. Application tracker | Done |
 | 5. Technical flashcards | Done |
 | 6. Pathways guide | Done |
-| Home page | Not started |
+| Home page | Done |
+
+All phases complete as of 2026-09-19. Next: push to the private GitHub repo (needs `gh`
+or a manually created repo - see README section 6).
 
 See `docs/PROGRESS.md` for dates and known issues.

@@ -129,8 +129,10 @@ export function MarketsDashboard() {
         />
       </div>
 
+      {/* min-w-0: grid items default to min-width:auto, which would stop the
+          watchlist table's scroller from shrinking on phones. */}
       <div className="grid gap-6 lg:grid-cols-3">
-        <div className="lg:col-span-2">
+        <div className="min-w-0 lg:col-span-2">
           {watchlist.status === "error" ? (
             <Card>
               <CardHeader title="Watchlist" />

@@ -9,6 +9,18 @@ tracker, technical flashcards and a careers pathways guide.
 
 ---
 
+## What's inside
+
+| Page | What it does |
+|---|---|
+| **Today** | Market snapshot, cards due, next deadline, daily commercial-awareness tick, weekly goals and streaks |
+| **Markets** | FTSE 100/250, S&P 500, Nasdaq, DAX, Nikkei, GBP FX, Brent, gold, UK 10y gilt; charts; watchlist; "My take" notes |
+| **Macro** | UK and US policy rate, CPI, GDP and unemployment, yield curves, plain-English explainers |
+| **News & notes** | Business headlines from public RSS feeds; three-part notes; searchable archive |
+| **Applications** | Kanban board and deadline countdowns for spring weeks, internships, grad schemes, apprenticeships |
+| **Flashcards** | Spaced-repetition decks: accounting, corporate finance, economics, plus your own cards |
+| **Pathways** | ACA, ACCA, CIMA, IB, S&T, asset management, economic consulting, GES, central banking |
+
 ## 1. Run it (first time)
 
 You need [Node.js](https://nodejs.org/) 20.9 or newer (`node --version` to check).
