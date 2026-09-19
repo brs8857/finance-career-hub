@@ -29,8 +29,10 @@ It runs locally on the owner's machine. It is not deployed anywhere.
 6. **Accessible and mobile-friendly.** Keyboard navigable, visible focus rings, WCAG AA
    contrast in both themes, works at 375px wide.
 7. **Stay inside this folder.** Relative paths only. Don't touch sibling projects.
-8. **Git:** repo is private. Don't change global git config. Don't deploy without asking.
-   Before making the repo public, scan the full history for secrets.
+8. **Git:** the repo is PUBLIC (made public 2026-09-19 after a full-history secrets scan).
+   Everything committed is visible to anyone - never commit keys, `.env*` files or `data/`.
+   Commits use the GitHub no-reply email (set in this repo's local git config only).
+   Don't change global git config. Don't deploy without asking.
 
 ## Stack
 
@@ -170,7 +172,7 @@ News notes:
 | 6. Pathways guide | Done |
 | Home page | Done |
 
-All phases complete as of 2026-09-19. Pushed to the private repo
+All phases complete as of 2026-09-19. Public repo:
 https://github.com/brs8857/finance-career-hub (branch `main`).
 
 See `docs/PROGRESS.md` for dates and known issues.

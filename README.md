@@ -102,9 +102,9 @@ See `CLAUDE.md` for conventions and `docs/DESIGN.md` for the architecture.
 
 ## 6. GitHub
 
-The repo is **private**. Never commit `.env.local` or the `data/` folder (both are
-gitignored). If you ever want to make it public, scan the full git history for secrets
-first.
+The repo is **public**: anyone can read the code. Your API keys (`.env.local`) and
+personal data (`data/`) are gitignored and never uploaded - keep it that way. Commits
+use your GitHub no-reply email address, so your personal email isn't exposed.
 
 ## 7. Putting it online (later)
 
