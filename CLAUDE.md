@@ -1,6 +1,6 @@
 @AGENTS.md
 
-# Finance Career Hub
+# Market Tracker
 
 A personal website to help a UK-based student break into finance, accounting or
 economics. The centrepiece is a market tracker, surrounded by tools for applications
@@ -65,7 +65,7 @@ npx next typegen     # regenerate route types if tsc can't find RouteContext/Pag
 ## Folder structure
 
 ```
-finance-career-hub/
+market-tracker/
 ├─ CLAUDE.md / AGENTS.md / README.md
 ├─ .env.example              # variable names + placeholders (tracked)
 ├─ .env.local                # real keys (gitignored - create it yourself)
@@ -173,6 +173,6 @@ News notes:
 | Home page | Done |
 
 All phases complete as of 2026-09-19. Public repo:
-https://github.com/brs8857/finance-career-hub (branch `main`).
+https://github.com/brs8857/market-tracker (branch `main`).
 
 See `docs/PROGRESS.md` for dates and known issues.

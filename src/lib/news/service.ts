@@ -18,7 +18,7 @@ async function fetchFeed(feed: FeedDefinition): Promise<Headline[]> {
   const xml = await throttle(async () => {
     const res = await fetch(feed.url, {
       cache: "no-store",
-      headers: { "User-Agent": "finance-career-hub (personal learning project)" },
+      headers: { "User-Agent": "market-tracker (personal learning project)" },
       signal: AbortSignal.timeout(15_000),
     });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);

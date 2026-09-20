@@ -81,7 +81,7 @@ export async function fetchOnsSeries(
   const raw = await throttle(async () => {
     const res = await fetch(`${onsUrl(topicPath, cdid, dataset)}/data`, {
       cache: "no-store",
-      headers: { "User-Agent": "finance-career-hub (personal learning project)" },
+      headers: { "User-Agent": "market-tracker (personal learning project)" },
     });
     if (!res.ok) throw new Error(`ONS HTTP ${res.status} for ${cdid}/${dataset}`);
     return (await res.json()) as OnsRaw;

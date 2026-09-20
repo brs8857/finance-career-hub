@@ -7,9 +7,9 @@ export function Brand() {
         aria-hidden
         className="grid size-7 place-items-center rounded-md bg-accent text-xs font-bold text-accent-fg"
       >
-        FC
+        MT
       </span>
-      <span>Finance Career Hub</span>
+      <span>Market Tracker</span>
     </Link>
   );
 }

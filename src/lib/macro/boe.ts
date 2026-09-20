@@ -75,7 +75,7 @@ export async function fetchBoeSeries(
   const csv = await throttle(async () => {
     const res = await fetch(`${URL_BASE}?${params}`, {
       cache: "no-store",
-      headers: { "User-Agent": "finance-career-hub (personal learning project)" },
+      headers: { "User-Agent": "market-tracker (personal learning project)" },
     });
     if (!res.ok) throw new Error(`Bank of England HTTP ${res.status}`);
     return res.text();

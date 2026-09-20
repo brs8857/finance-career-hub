@@ -20,7 +20,7 @@ Checklist of build phases. Dates are when the phase was committed.
 - [x] `.env.example` with placeholder values only
 - [x] `CLAUDE.md`, `README.md`, `docs/PROGRESS.md`, `docs/LEARNING-LOG.md`, `docs/DESIGN.md`
 - [x] `git init` on `main`, first commit
-- [x] Private GitHub repo `brs8857/finance-career-hub` created and pushed (2026-09-19)
+- [x] Private GitHub repo `brs8857/market-tracker` created and pushed (2026-09-19)
 
 ## Phase 1 - Foundation + Markets
 

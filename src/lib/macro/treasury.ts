@@ -58,7 +58,7 @@ async function fetchYear(year: number): Promise<string> {
   return throttle(async () => {
     const res = await fetch(csvUrl(year), {
       cache: "no-store",
-      headers: { "User-Agent": "finance-career-hub (personal learning project)" },
+      headers: { "User-Agent": "market-tracker (personal learning project)" },
       signal: AbortSignal.timeout(20_000),
     });
     if (!res.ok) throw new Error(`US Treasury HTTP ${res.status}`);

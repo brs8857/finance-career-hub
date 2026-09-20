@@ -17,7 +17,7 @@ import { createThrottle } from "@/lib/throttle";
 // - Bursts get blocked (404s), so all calls go through a throttle.
 
 const BASE = "https://query1.finance.yahoo.com";
-const HEADERS = { "User-Agent": "Mozilla/5.0 (finance-career-hub; personal learning project)" };
+const HEADERS = { "User-Agent": "Mozilla/5.0 (market-tracker; personal learning project)" };
 const SPARK_BATCH = 20;
 
 const throttle = createThrottle(500);

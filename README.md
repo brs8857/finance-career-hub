@@ -1,4 +1,4 @@
-# Finance Career Hub
+# Market Tracker
 
 A personal dashboard for breaking into UK finance, accounting and economics: a market
 tracker at the centre, plus a macro panel, commercial-awareness notes, an application

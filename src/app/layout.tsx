@@ -10,7 +10,7 @@ const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: { default: "Finance Career Hub", template: "%s · Finance Career Hub" },
+  title: { default: "Market Tracker", template: "%s · Market Tracker" },
   description: "Markets, macro and interview prep for breaking into UK finance, accounting and economics.",
 };
 
