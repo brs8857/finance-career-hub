@@ -1,4 +1,5 @@
 import type { NextRequest } from "next/server";
+import { IS_DEMO } from "@/lib/demo";
 import { isCollectionName } from "@/lib/store/collections";
 import { readCollection, ValidationError, writeCollection } from "@/lib/store/server";
 
@@ -21,6 +22,11 @@ export async function PUT(req: NextRequest, ctx: RouteContext<"/api/store/[colle
   const { collection } = await ctx.params;
   if (!isCollectionName(collection)) {
     return Response.json({ error: `Unknown collection "${collection}"` }, { status: 404 });
+  }
+  // Backstop for the public demo: the browser doesn't send saves, and the
+  // server has no writable disk there anyway.
+  if (IS_DEMO) {
+    return Response.json({ error: "This is a read-only demo - changes aren't saved." }, { status: 403 });
   }
   let body: { value?: unknown };
   try {

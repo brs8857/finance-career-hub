@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useSyncExternalStore } from "react";
+import { IS_DEMO } from "@/lib/demo";
 import type { CollectionName, CollectionValue } from "./collections";
 
 // Client-side access to a saved collection.
@@ -56,6 +57,8 @@ function load(name: CollectionName, force = false): Promise<void> {
 }
 
 function save(name: CollectionName, value: unknown) {
+  // Demo deployment: keep changes in this tab only, never send them to the server.
+  if (IS_DEMO) return;
   const previous = saveQueues.get(name) ?? Promise.resolve();
   const job = previous.then(async () => {
     try {

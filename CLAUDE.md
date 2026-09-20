@@ -158,6 +158,7 @@ News notes:
 | Leitner scheduling | `src/lib/srs/leitner.ts` |
 | Career pathways content (review each cycle; bump LAST_REVIEWED) | `src/content/pathways.ts` |
 | Weekly goals + streak rules | `src/lib/goals.ts` |
+| Demo-mode flag (public deployment) | `src/lib/demo.ts` |
 
 ## Phase status
 
@@ -171,6 +172,9 @@ News notes:
 | 5. Technical flashcards | Done |
 | 6. Pathways guide | Done |
 | Home page | Done |
+
+Demo mode: `NEXT_PUBLIC_DEMO_MODE=1` makes the app read-only (changes stay in the
+visitor's tab). Used for the public Vercel demo; never set it locally.
 
 All phases complete as of 2026-09-19. Public repo:
 https://github.com/brs8857/market-tracker (branch `main`).

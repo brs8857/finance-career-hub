@@ -106,7 +106,29 @@ The repo is **public**: anyone can read the code. Your API keys (`.env.local`) a
 personal data (`data/`) are gitignored and never uploaded - keep it that way. Commits
 use your GitHub no-reply email address, so your personal email isn't exposed.
 
-## 7. Putting it online (later)
+## 7. The public demo (Vercel)
+
+A demo can be deployed to Vercel's free Hobby plan straight from GitHub. It runs in
+**demo mode**: visitors can try everything, but changes live only in their browser tab
+and are never saved, because Vercel's servers can't write files and there's no login.
+
+To deploy:
+
+1. Go to <https://vercel.com/new>, sign in with GitHub and import `brs8857/market-tracker`.
+2. Leave the build settings as they are (Vercel detects Next.js).
+3. Under **Environment Variables**, add:
+   - `NEXT_PUBLIC_DEMO_MODE` = `1`  (required - without it, saving looks broken)
+   - `FRED_API_KEY` = your key (optional, for US macro data)
+4. Click **Deploy**.
+
+Notes:
+- Market and economic data on the demo are real, from the same sources.
+- Yahoo rate-limits data centres more than home connections, so the demo may show
+  the sample-data or last-known badges more often. That's the honest fallback working.
+- Your own notes and progress stay on your computer. They are never uploaded.
+- To take the demo down: Vercel dashboard → the project → Settings → Delete Project.
+
+## 8. Using it for real (locally)
 
 Don't use GitHub Pages - it only hosts static files, and this app needs a server to keep
 API keys secret. Options, when you're ready:
@@ -117,3 +139,5 @@ API keys secret. Options, when you're ready:
   see your notes unless you add a login.
 - **A small VPS / Raspberry Pi** - keeps the JSON store as-is, but you manage the server.
 - **Keep it local** (the current setup) - simplest and completely private.
+- **On your phone at home:** run `npm run build` then `npm start -- -H 0.0.0.0`, and visit
+  `http://<your-PC-IP>:3000` from your phone on the same Wi-Fi (`ipconfig` shows the IP).

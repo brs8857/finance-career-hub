@@ -101,6 +101,12 @@ Checklist of build phases. Dates are when the phase was committed.
 - [x] Final check: all 10 pages at 375px - no horizontal scroll, disclaimer footer present
 - [x] 101 unit tests; lint and production build clean
 
+## After the phases
+
+- 2026-09-20: renamed the project to Market Tracker; repo renamed to `brs8857/market-tracker`
+  and made public (full history rescanned; commit emails switched to the GitHub no-reply address).
+- 2026-09-20: added demo mode (`NEXT_PUBLIC_DEMO_MODE=1`) for a public Vercel deployment.
+
 ## Known issues
 
 - Twelve Data provider is written against its published docs but hasn't been run
